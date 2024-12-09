@@ -12,4 +12,5 @@ public class DataContext
 
     public IMongoCollection<Career> Careers => _database.GetCollection<Career>("Careers");
     public IMongoCollection<Subject> Subjects => _database.GetCollection<Subject>("Subjects");
+    public IMongoCollection<SubjectRelationship> SubjectRelationships => _database.GetCollection<SubjectRelationship>("SubjectRelationships");
 }
