@@ -1,44 +1,38 @@
-using MongoDB.Driver;
 using System.Text.Json;
+using MongoDB.Driver;
 
-namespace CareerManagementService.Data.DataSeeder
-{
-    public class DbSeeder
+public class DbSeeder{
+    private readonly DataContext _context;
+    private readonly IWebHostEnvironment _environment;
+
+    public DbSeeder(DataContext context, IWebHostEnvironment environment)
     {
-        private readonly DataContext _context;
+        _context = context;
+        _environment = environment;
+    }
 
-        public DbSeeder(DataContext context)
+    public async Task SeedAsync(){
+        var filePath1 = Path.Combine(_environment.ContentRootPath, "Data", "DataSeeders", "CareersData.json");
+        var filePath2 = Path.Combine(_environment.ContentRootPath, "Data", "DataSeeders", "SubjectsData.json");
+        var filePath3 = Path.Combine(_environment.ContentRootPath, "Data", "DataSeeders", "SubjectsRelationsData.json");
+
+        await SeedCollectionAsync(filePath1, _context.Careers);
+        await SeedCollectionAsync(filePath2, _context.Subjects);
+        await SeedCollectionAsync(filePath3, _context.SubjectRelationships);
+    }
+
+    private async Task SeedCollectionAsync<T>(string filePath, IMongoCollection<T> collection) where T : class
+    {
+        if (File.Exists(filePath))
         {
-            _context = context;
-        }
+            var jsonData = await File.ReadAllTextAsync(filePath);
+            var entities = JsonSerializer.Deserialize<List<T>>(jsonData);
 
-        public void SeedData()
-        {
-            // Cargar datos de carreras
-            if (_context.Careers.CountDocuments(FilterDefinition<Career>.Empty) == 0)
+            if (entities != null && entities.Any())
             {
-                var careers = LoadDataFromJson<Career>("DataSeeder/CareersData.json");
-                _context.Careers.InsertMany(careers);
+                await collection.InsertManyAsync(entities);
             }
-
-            // Cargar datos de asignaturas
-            if (_context.Subjects.CountDocuments(FilterDefinition<Subject>.Empty) == 0)
-            {
-                var subjects = LoadDataFromJson<Subject>("DataSeeder/SubjectsData.json");
-                _context.Subjects.InsertMany(subjects);
-            }
-            if (_context.SubjectRelationships.CountDocuments(FilterDefinition<SubjectRelationship>.Empty) == 0)
-            {
-                var subjectRelationships = LoadDataFromJson<SubjectRelationship>("DataSeeder/SubjectsRelationsData.json");
-                _context.SubjectRelationships.InsertMany(subjectRelationships);
-            }
-        }
-
-        private List<T> LoadDataFromJson<T>(string path)
-        {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), path);
-            var jsonData = File.ReadAllText(filePath);
-            return JsonSerializer.Deserialize<List<T>>(jsonData);
         }
     }
+
 }
