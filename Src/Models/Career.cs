@@ -1,7 +1,10 @@
 using MongoDB.Bson.Serialization.Attributes;
-
-public class Career 
+namespace career_service.Src.Models
 {
-    public int Id { get; set; } 
-    public string Name { get; set; } = null!;
+    public class Career 
+    {
+        public int Id { get; set; } 
+        public string Name { get; set; } = null!;
+    }
+   
 }

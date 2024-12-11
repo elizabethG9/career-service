@@ -1,4 +1,10 @@
-public interface ICareersService
+using career_service.Src.DTOs;
+
+namespace career_service.Src.Services.Interface
 {
-    public Task<List<CareerDto>> GetAllCareers();
+    public interface ICareersService
+    {
+        public Task<List<CareerDto>> GetAllCareers();
+    }
+   
 }

@@ -1,10 +1,11 @@
+using career_service.Src.Services.Interface;
 using CareersProto;
 using Grpc.Core;
 
 public class CareersGrpcService : CareerService.CareerServiceBase
 {
-    private readonly CareersService _careersService;
-    public CareersGrpcService(CareersService careersService)
+    private readonly ICareersService _careersService;
+    public CareersGrpcService(ICareersService careersService)
     {
         _careersService = careersService;
     }

@@ -1,4 +1,10 @@
-public interface ICareersRepository
+using career_service.Src.Models;
+
+namespace career_service.Src.Repsositories.Interface
 {
-    Task<List<Career>> GetAllCareers();
+    public interface ICareersRepository
+    {
+        Task<List<Career>> GetAllCareers();
+    }
 }
+   

@@ -1,18 +1,24 @@
 
+using career_service.Src.Data;
+using career_service.Src.Models;
+using career_service.Src.Repsositories.Interface;
 using MongoDB.Driver;
-
-public class CareerRepository : ICareersRepository
+namespace career_service.Src.Repsositories
 {
-    private readonly DataContext _context;
-
-    public CareerRepository(DataContext context)
+    public class CareerRepository : ICareersRepository
     {
-        _context = context;
-    }
-    public async Task<List<Career>> GetAllCareers()
-    {
-        var careers = await _context.Careers.Find(FilterDefinition<Career>.Empty).ToListAsync();
+        private readonly IMongoDatabase _database;
 
-        return careers;    
+        public CareerRepository(IMongoDatabase database)
+        {
+            _database = database;
+        }
+        public async Task<List<Career>> GetAllCareers()
+        {
+            var careers = await _database.GetCollection<Career>("Careers").Find(Builders<Career>.Filter.Empty).ToListAsync();
+
+            return careers;    
+        }
     }
+
 }

@@ -9,13 +9,12 @@
     }
   },
   "profiles": {
-    "CareersGrpcService":{
+    "GrpcService":{
       "commandName": "Project",
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:50051",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MONGO_PUBLIC_URL" : "mongodb://mongo:IcCUfcLPcpmaRYnuNFyjwaZvzFbEBYHh@junction.proxy.rlwy.net:57622"
       }
     },
     "http": {

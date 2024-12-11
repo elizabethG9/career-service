@@ -1,51 +1,58 @@
+using career_service.Src.DTOs;
+using career_service.Src.Repsositories.Interface;
+using career_service.Src.Services.Interface;
 
-public class SubjectsService : ISubjectsService
-
+namespace career_service.Src.Services
 {
-    private readonly ISubjectsRepository _subjectsRepository;
-    public SubjectsService(ISubjectsRepository subjectsRepository)
+    public class SubjectsService : ISubjectsService
+
     {
-        _subjectsRepository = subjectsRepository;
-    }
-    public async Task<List<SubjectDto>> GetAllSubjects()
-    {
-        var subjects = await _subjectsRepository.GetAllSubjects();
-        var subjectDtos = subjects.Select(s => new SubjectDto
+        private readonly ISubjectsRepository _subjectsRepository;
+        public SubjectsService(ISubjectsRepository subjectsRepository)
         {
-            Id = s.Id,
-            Code = s.Code,
-            Name = s.Name,
-            Department = s.Department,
-            Credits = s.Credits,
-            Semester = s.Semester
-
-        }).ToList();
-        return subjectDtos;
-    }
-    public async Task<List<SubjectRelationshipDto>> GetPrerequisitesMapObjects()
-    {
-        var subjectRelationships = await _subjectsRepository.GetPrerequisitesMapObjects();
-        var subjectRelationshipDtos = subjectRelationships.Select(sr => new SubjectRelationshipDto
+            _subjectsRepository = subjectsRepository;
+        }
+        public async Task<List<SubjectDto>> GetAllSubjects()
         {
-            Id = sr.Id,
-            SubjectCode = sr.SubjectCode,
-            PreSubjectCode = sr.PreSubjectCode
-        }).ToList();
-        return subjectRelationshipDtos;
-    }
-    public async Task<Dictionary<string, List<string>>> GetPrerequisitesMap()
-    {
-        var subjectRelationships = await _subjectsRepository.GetPrerequisitesMap();
-        return subjectRelationships;
-    }
+            var subjects = await _subjectsRepository.GetAllSubjects();
+            var subjectDtos = subjects.Select(s => new SubjectDto
+            {
+                Id = s.Id,
+                Code = s.Code,
+                Name = s.Name,
+                Department = s.Department,
+                Credits = s.Credits,
+                Semester = s.Semester
 
-    public async Task<Dictionary<string, List<string>>> GetPostrequisitesMap()
-    {
-        var subjectRelationships = await _subjectsRepository.GetPostrequisitesMap();
-        return subjectRelationships;
+            }).ToList();
+            return subjectDtos;
+        }
+        public async Task<List<SubjectRelationshipDto>> GetPrerequisitesMapObjects()
+        {
+            var subjectRelationships = await _subjectsRepository.GetPrerequisitesMapObjects();
+            var subjectRelationshipDtos = subjectRelationships.Select(sr => new SubjectRelationshipDto
+            {
+                Id = sr.Id,
+                SubjectCode = sr.SubjectCode,
+                PreSubjectCode = sr.PreSubjectCode
+            }).ToList();
+            return subjectRelationshipDtos;
+        }
+        public async Task<Dictionary<string, List<string>>> GetPrerequisitesMap()
+        {
+            var subjectRelationships = await _subjectsRepository.GetPrerequisitesMap();
+            return subjectRelationships;
+        }
+
+        public async Task<Dictionary<string, List<string>>> GetPostrequisitesMap()
+        {
+            var subjectRelationships = await _subjectsRepository.GetPostrequisitesMap();
+            return subjectRelationships;
+        }
+
+        
+
+        
     }
-
-    
-
-    
+   
 }
