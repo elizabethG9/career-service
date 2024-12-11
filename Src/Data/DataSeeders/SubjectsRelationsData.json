@@ -1,271 +1,232 @@
 [
     {
+        "Id": 1,
         "SubjectCode": "MEC-001",
         "PreSubjectCode": "IAF-001"
     },
     {
+        "Id": 2,
         "SubjectCode": "MEC-001",
         "PreSubjectCode": "CAL-001"
     },
     {
+        "Id": 3,
         "SubjectCode": "CAL-002",
         "PreSubjectCode": "CAL-001"
     },
     {
+        "Id": 4,
         "SubjectCode": "ALG-002",
         "PreSubjectCode": "ALG-001"
     },
     {
+        "Id": 5,
         "SubjectCode": "PRG-001",
         "PreSubjectCode": "ALG-001"
     },
     {
+        "Id": 6,
         "SubjectCode": "PRG-001",
         "PreSubjectCode": "PRI-001"
     },
     {
+        "Id": 7,
         "SubjectCode": "ING-002",
         "PreSubjectCode": "ING-001"
     },
-
-
-
-
-
-
-
-
-    
-    
     {
+        "Id": 8,
         "SubjectCode": "ECD-001",
         "PreSubjectCode": "CAL-002"
     },
     {
+        "Id": 9,
         "SubjectCode": "ECD-001",
         "PreSubjectCode": "ALG-002"
     },
     {
+        "Id": 10,
         "SubjectCode": "CAL-003",
         "PreSubjectCode": "CAL-002"
     },
     {
+        "Id": 11,
         "SubjectCode": "POO-001",
         "PreSubjectCode": "PRG-001"
     },
     {
+        "Id": 12,
         "SubjectCode": "TPA-001",
         "PreSubjectCode": "PRG-001"
     },
     {
+        "Id": 13,
         "SubjectCode": "COE-002",
         "PreSubjectCode": "COE-001"
     },
     {
+        "Id": 14,
         "SubjectCode": "DFC-001",
         "PreSubjectCode": "IUE-001"
     },
-
-
-
-
-
-
-
-
-
-
-
     {
+        "Id": 15,
         "SubjectCode": "ELM-001",
         "PreSubjectCode": "CAL-003"
     },
     {
+        "Id": 16,
         "SubjectCode": "ELM-001",
         "PreSubjectCode": "MEC-001"
     },
     {
+        "Id": 17,
         "SubjectCode": "ELM-001",
         "PreSubjectCode": "ALG-001"
     },
     {
+        "Id": 18,
         "SubjectCode": "EST-001",
         "PreSubjectCode": "CAL-002"
     },
     {
+        "Id": 19,
         "SubjectCode": "EDD-001",
         "PreSubjectCode": "POO-001"
     },
     {
+        "Id": 20,
         "SubjectCode": "EDD-001",
         "PreSubjectCode": "TPA-001"
     },
     {
+        "Id": 21,
         "SubjectCode": "PDI-001",
         "PreSubjectCode": "PII-001"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
+        "Id": 22,
         "SubjectCode": "ELT-001",
         "PreSubjectCode": "ECD-001"
     },
     {
+        "Id": 23,
         "SubjectCode": "ICD-001",
         "PreSubjectCode": "EST-001"
     },
     {
+        "Id": 24,
         "SubjectCode": "ICD-001",
         "PreSubjectCode": "EDD-001"
     },
     {
+        "Id": 25,
         "SubjectCode": "DSD-001",
         "PreSubjectCode": "ALG-001"
     },
     {
+        "Id": 26,
         "SubjectCode": "BDD-001",
         "PreSubjectCode": "EDD-001"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
+        "Id": 27,
         "SubjectCode": "AOC-001",
         "PreSubjectCode": "DSD-001"
     },
     {
+        "Id": 28,
         "SubjectCode": "FDC-001",
         "PreSubjectCode": "POO-001"
     },
     {
+        "Id": 29,
         "SubjectCode": "FDC-001",
         "PreSubjectCode": "TPA-001"
     },
     {
+        "Id": 30,
         "SubjectCode": "IWM-001",
         "PreSubjectCode": "BDD-001"
     },
     {
+        "Id": 31,
         "SubjectCode": "ISW-001",
         "PreSubjectCode": "EDD-001"
     },
     {
+        "Id": 32,
         "SubjectCode": "PSW-001",
         "PreSubjectCode": "PPA-001"
     },
-
-
-
-
-
-
-
-
-
-
-
-
     {
+        "Id": 33,
         "SubjectCode": "SDI-001",
         "PreSubjectCode": "BDD-001"
     },
     {
+        "Id": 34,
         "SubjectCode": "LDP-001",
         "PreSubjectCode": "EDD-001"
     },
     {
+        "Id": 35,
         "SubjectCode": "DAA-001",
         "PreSubjectCode": "FDC-001"
     },
     {
+        "Id": 36,
         "SubjectCode": "SOP-001",
         "PreSubjectCode": "AOC-001"
     },
     {
+        "Id": 37,
         "SubjectCode": "DFC-002",
         "PreSubjectCode": "DFC-001"
     },
     {
+        "Id": 38,
         "SubjectCode": "PPF-001",
         "PreSubjectCode": "PSW-001"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {
+        "Id": 39,
         "SubjectCode": "SDI-002",
         "PreSubjectCode": "SDI-001"
     },
     {
+        "Id": 40,
         "SubjectCode": "GPT-001",
         "PreSubjectCode": "SDI-001"
     },
     {
+        "Id": 41,
         "SubjectCode": "ADS-001",
         "PreSubjectCode": "SOP-001"
     },
     {
+        "Id": 42,
         "SubjectCode": "RDC-001",
         "PreSubjectCode": "SOP-001"
     },
     {
+        "Id": 43,
         "SubjectCode": "EMP-001",
         "PreSubjectCode": "DFC-002"
     },
     {
+        "Id": 44,
         "SubjectCode": "PGT-001",
         "PreSubjectCode": "PPF-001"
     },
-
-
-
-
     {
+        "Id": 45,
         "SubjectCode": "EPT-001",
         "PreSubjectCode": "GPT-001"
     },
     {
+        "Id": 46,
         "SubjectCode": "EPT-001",
         "PreSubjectCode": "SDI-002"
     }
-
 ]
