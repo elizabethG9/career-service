@@ -26,12 +26,13 @@ namespace career_service.Src.Services
             }
             return response;
         }
-
-        public override async Task<PrerequisitesMapObjectsListResponse> GetPrerequisitesMapObjects(Empty request, ServerCallContext context) {
+        public override async Task<PrerequisitesMapObjectsListResponse> GetPrerequisitesMapObjects(Empty request, ServerCallContext context)
+        {
             var subjectRelationships = await _subjectsService.GetPrerequisitesMapObjects();
             var response = new PrerequisitesMapObjectsListResponse();
 
-            foreach (var subjectRelationship in subjectRelationships) {
+            foreach (var subjectRelationship in subjectRelationships)
+            {
                 response.SubjectRelationships.Add(new SubjectsProto.SubjectRelationship
                 {
                     Id = subjectRelationship.Id,
@@ -39,8 +40,10 @@ namespace career_service.Src.Services
                     PreSubjectCode = subjectRelationship.PreSubjectCode
                 });
             }
+
             return response;
         }
+
 
         public override async Task<PrerequisitesMapResponse> GetPrerequisitesMap(Empty request, ServerCallContext context) {
             var prerequisitesMap = await _subjectsService.GetPrerequisitesMap();

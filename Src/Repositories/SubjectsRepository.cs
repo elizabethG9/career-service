@@ -1,4 +1,5 @@
 
+using System.Text.Json;
 using career_service.Src.Data;
 using career_service.Src.Models;
 using career_service.Src.Repsositories.Interface;
@@ -17,15 +18,16 @@ namespace career_service.Src.Repsositories
         {
             var subjects = await _database.GetCollection<Subject>("Subjects").Find(FilterDefinition<Subject>.Empty).ToListAsync();
             return subjects;
-        } public async Task<List<SubjectRelationship>> GetPrerequisitesMapObjects()
+        } 
+        public async Task<List<SubjectRelationship>> GetPrerequisitesMapObjects()
         {
-            var subjectRelationships = await _database.GetCollection<SubjectRelationship>("SubjectRelationships").Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
-            return subjectRelationships;
+            var collection = _database.GetCollection<SubjectRelationship>("SubjectsRelationships");
+            var subjectsRelationship = await collection.Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
+            return subjectsRelationship;
         }
-
         public async Task<Dictionary<string, List<string>>> GetPostrequisitesMap()
         {
-            var relationships = await _database.GetCollection<SubjectRelationship>("SubjectRelationships").Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
+            var relationships = await _database.GetCollection<SubjectRelationship>("SubjectsRelationships").Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
 
             return relationships
                 .GroupBy(r => r.SubjectCode)
@@ -38,7 +40,7 @@ namespace career_service.Src.Repsositories
         public async Task<Dictionary<string, List<string>>> GetPrerequisitesMap()
         {
             // Obtener todas las relaciones de prerrequisitos
-            var relationships = await _database.GetCollection<SubjectRelationship>("SubjectRelationships").Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
+            var relationships = await _database.GetCollection<SubjectRelationship>("SubjectsRelationships").Find(FilterDefinition<SubjectRelationship>.Empty).ToListAsync();
 
             // Agrupar las relaciones por código de prerrequisito y crear un diccionario
             return relationships

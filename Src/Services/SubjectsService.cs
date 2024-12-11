@@ -38,6 +38,8 @@ namespace career_service.Src.Services
             }).ToList();
             return subjectRelationshipDtos;
         }
+
+
         public async Task<Dictionary<string, List<string>>> GetPrerequisitesMap()
         {
             var subjectRelationships = await _subjectsRepository.GetPrerequisitesMap();
