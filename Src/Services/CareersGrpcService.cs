@@ -1,6 +1,7 @@
 using career_service.Src.Services.Interface;
 using CareersProto;
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 
 public class CareersGrpcService : CareerService.CareerServiceBase
 {
@@ -10,6 +11,7 @@ public class CareersGrpcService : CareerService.CareerServiceBase
         _careersService = careersService;
     }
 
+    [Authorize]
     public override async Task<CareersResponse> GetAllCareers(Empty request, ServerCallContext context)
     {
         var careers = await _careersService.GetAllCareers();

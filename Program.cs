@@ -1,5 +1,7 @@
 
+using System.Text;
 using career_service.Src.Data;
+using career_service.Src.Helpers;
 using career_service.Src.Models;
 using career_service.Src.Repsositories;
 using career_service.Src.Repsositories.Interface;
@@ -7,6 +9,7 @@ using career_service.Src.Services;
 using career_service.Src.Services.Interface;
 using DotNetEnv;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,13 +37,32 @@ builder.Services.AddScoped<ICareersRepository, CareerRepository>();
 builder.Services.AddScoped<ICareersService, CareersService>();
 builder.Services.AddScoped<ISubjectsRepository, SubjectsRepository>();
 builder.Services.AddScoped<ISubjectsService, SubjectsService>();
+builder.Services.AddScoped<IBlackListService, BlackListService>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddGrpc();  // Esta línea es importante
+builder.Services.AddGrpc(options =>
+{
+    options.Interceptors.Add<BlacklistInterceptor>();
+});  // Esta línea es importante
 builder.Services.AddTransient<Seed>();
+
+var secret = Env.GetString("JWT_SECRET");
+
+builder.Services.AddAuthentication().AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuerSigningKey = true,
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+            secret
+        ))
+    };
+});
 
 var app = builder.Build();
 
@@ -63,6 +85,7 @@ app.MapControllers();
 
 app.MapGrpcService<SubjectsGrpcService>();
 app.MapGrpcService<CareersGrpcService>();
+
 app.MapGet("/", () => "Hello World!");
 
 
