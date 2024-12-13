@@ -1,8 +1,8 @@
 using System.Text.Json;
-using career_service.Src.Models;
+using careers_service.Src.Models;
 using MongoDB.Driver;
 
-namespace career_service.Src.Data{
+namespace careers_service.Src.Data{
 
     public class Seed
     {

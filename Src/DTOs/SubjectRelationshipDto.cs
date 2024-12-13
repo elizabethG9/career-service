@@ -1,4 +1,4 @@
-namespace career_service.Src.DTOs
+namespace careers_service.Src.DTOs
 {
     public class SubjectRelationshipDto
     {

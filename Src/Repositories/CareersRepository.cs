@@ -1,9 +1,9 @@
 
-using career_service.Src.Data;
-using career_service.Src.Models;
-using career_service.Src.Repsositories.Interface;
+using careers_service.Src.Data;
+using careers_service.Src.Models;
+using careers_service.Src.Repsositories.Interface;
 using MongoDB.Driver;
-namespace career_service.Src.Repsositories
+namespace careers_service.Src.Repsositories
 {
     public class CareerRepository : ICareersRepository
     {

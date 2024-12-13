@@ -1,6 +1,6 @@
-using career_service.Src.Services.Interface;
+using careers_service.Src.Services.Interfaces;
 
-namespace career_service.Src.Services
+namespace careers_service.Src.Services
 {
     public class BlackListService : IBlackListService
     {

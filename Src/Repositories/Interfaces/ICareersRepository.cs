@@ -1,6 +1,6 @@
-using career_service.Src.Models;
+using careers_service.Src.Models;
 
-namespace career_service.Src.Repsositories.Interface
+namespace careers_service.Src.Repsositories.Interface
 {
     public interface ICareersRepository
     {

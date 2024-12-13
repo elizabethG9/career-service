@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace career_service.Src.Models
+namespace careers_service.Src.Models
 {
     public class Subject
     {

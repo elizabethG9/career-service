@@ -1,4 +1,4 @@
-namespace career_service.Src.Services.Interface
+namespace careers_service.Src.Services.Interfaces
 {
     public interface IBlackListService
     {

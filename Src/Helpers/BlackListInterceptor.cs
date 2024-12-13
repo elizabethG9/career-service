@@ -1,8 +1,8 @@
 using Grpc.Core;
 using Grpc.Core.Interceptors;
-using career_service.Src.Services.Interface;
+using careers_service.Src.Services.Interfaces;
 
-namespace career_service.Src.Helpers
+namespace careers_service.Src.Helpers
 {
     public class BlacklistInterceptor : Interceptor
     {

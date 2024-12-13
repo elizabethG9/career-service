@@ -1,6 +1,6 @@
-using career_service.Src.DTOs;
+using careers_service.Src.DTOs;
 
-namespace career_service.Src.Services.Interface
+namespace careers_service.Src.Services.Interface
 {
     public interface ISubjectsService
     {

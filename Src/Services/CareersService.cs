@@ -1,8 +1,8 @@
-using career_service.Src.DTOs;
-using career_service.Src.Repsositories.Interface;
-using career_service.Src.Services.Interface;
+using careers_service.Src.DTOs;
+using careers_service.Src.Repsositories.Interface;
+using careers_service.Src.Services.Interface;
 
-namespace career_service.Src.Services
+namespace careers_service.Src.Services
 {
     public class CareersService : ICareersService
     {

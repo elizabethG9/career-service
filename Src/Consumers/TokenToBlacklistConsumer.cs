@@ -1,9 +1,9 @@
-using career_service.Src.Services.Interface;
+using careers_service.Src.Services.Interfaces;
 using MassTransit;
 using Shared.Messages;
 
 
-namespace career_service.Src.Consumers
+namespace careers_service.Src.Consumers
 {
     public class TokenToBlacklistConsumer : IConsumer<TokenToBlacklistMessage>
     {
