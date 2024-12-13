@@ -1,14 +1,14 @@
 
 using System.Text;
+using career_service.Src.Consumers;
 using career_service.Src.Data;
 using career_service.Src.Helpers;
-using career_service.Src.Models;
 using career_service.Src.Repsositories;
 using career_service.Src.Repsositories.Interface;
 using career_service.Src.Services;
 using career_service.Src.Services.Interface;
 using DotNetEnv;
-using Microsoft.Extensions.Options;
+using MassTransit;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
@@ -62,6 +62,24 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
             secret
         ))
     };
+});
+
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<TokenToBlacklistConsumer>();
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });
+        
+        cfg.ReceiveEndpoint("token-blacklist-queue", ep =>
+        {
+            ep.ConfigureConsumer<TokenToBlacklistConsumer>(context);
+        });
+    });
 });
 
 var app = builder.Build();
