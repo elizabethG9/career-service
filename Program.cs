@@ -37,7 +37,7 @@ builder.Services.AddScoped<ICareersRepository, CareerRepository>();
 builder.Services.AddScoped<ICareersService, CareersService>();
 builder.Services.AddScoped<ISubjectsRepository, SubjectsRepository>();
 builder.Services.AddScoped<ISubjectsService, SubjectsService>();
-builder.Services.AddScoped<IBlackListService, BlackListService>();
+builder.Services.AddSingleton<IBlackListService, BlackListService>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
