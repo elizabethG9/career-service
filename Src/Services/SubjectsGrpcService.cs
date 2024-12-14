@@ -1,7 +1,7 @@
-using career_service.Src.Services.Interface;
+using careers_service.Src.Services.Interface;
 using Grpc.Core;
 using SubjectsProto;
-namespace career_service.Src.Services
+namespace careers_service.Src.Services
 {
     public class SubjectsGrpcService : SubjectService.SubjectServiceBase {
         private readonly ISubjectsService _subjectsService;
@@ -14,7 +14,7 @@ namespace career_service.Src.Services
             var response = new SubjectsListResponse();
 
             foreach (var subject in subjects) {
-                response.Subjects.Add(new SubjectsProto.Subject
+                response.Subjects.Add(new Subject
                 {
                     Id = subject.Id,
                     Code = subject.Code,
@@ -33,7 +33,7 @@ namespace career_service.Src.Services
 
             foreach (var subjectRelationship in subjectRelationships)
             {
-                response.SubjectRelationships.Add(new SubjectsProto.SubjectRelationship
+                response.SubjectRelationships.Add(new SubjectRelationship
                 {
                     Id = subjectRelationship.Id,
                     SubjectCode = subjectRelationship.SubjectCode,

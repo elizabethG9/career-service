@@ -19,7 +19,7 @@ public class CareersGrpcService : CareerService.CareerServiceBase
 
         foreach (var career in careers)
         {
-            response.Careers.Add(new CareersProto.Career
+            response.Careers.Add(new Career
             {
                 Id = career.Id,
                 Name = career.Name,

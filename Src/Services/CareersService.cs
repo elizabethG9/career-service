@@ -1,4 +1,4 @@
-using careers_service.Src.DTOs;
+using careers_service.Src.Models;
 using careers_service.Src.Repsositories.Interface;
 using careers_service.Src.Services.Interface;
 
@@ -11,16 +11,10 @@ namespace careers_service.Src.Services
         {
             _careersRepository = careersRepository;
         }
-        public async Task<List<CareerDto>> GetAllCareers()
+        public async Task<List<Career>> GetAllCareers()
         {
             var careers= await _careersRepository.GetAllCareers();
-            var careerDtos = careers.Select(c => new CareerDto
-        {
-            Id = c.Id,
-            Name = c.Name
-        }).ToList();
-
-        return careerDtos;
+            return careers;
         }
     }
    

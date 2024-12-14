@@ -1,4 +1,4 @@
-using careers_service.Src.DTOs;
+using careers_service.Src.Models;
 using careers_service.Src.Repsositories.Interface;
 using careers_service.Src.Services.Interface;
 
@@ -12,31 +12,15 @@ namespace careers_service.Src.Services
         {
             _subjectsRepository = subjectsRepository;
         }
-        public async Task<List<SubjectDto>> GetAllSubjects()
+        public async Task<List<Subject>> GetAllSubjects()
         {
             var subjects = await _subjectsRepository.GetAllSubjects();
-            var subjectDtos = subjects.Select(s => new SubjectDto
-            {
-                Id = s.Id,
-                Code = s.Code,
-                Name = s.Name,
-                Department = s.Department,
-                Credits = s.Credits,
-                Semester = s.Semester
-
-            }).ToList();
-            return subjectDtos;
+            return subjects;
         }
-        public async Task<List<SubjectRelationshipDto>> GetPrerequisitesMapObjects()
+        public async Task<List<SubjectRelationship>> GetPrerequisitesMapObjects()
         {
             var subjectRelationships = await _subjectsRepository.GetPrerequisitesMapObjects();
-            var subjectRelationshipDtos = subjectRelationships.Select(sr => new SubjectRelationshipDto
-            {
-                Id = sr.Id,
-                SubjectCode = sr.SubjectCode,
-                PreSubjectCode = sr.PreSubjectCode
-            }).ToList();
-            return subjectRelationshipDtos;
+            return subjectRelationships;
         }
 
 
