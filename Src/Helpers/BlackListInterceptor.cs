@@ -24,7 +24,7 @@ namespace careers_service.Src.Helpers
 
             if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
             {
-                throw new RpcException(new Status(StatusCode.Unauthenticated, "Missing or invalid Authorization header"));
+                return await continuation(request, context);
             }
 
             var token = authHeader.Replace("Bearer ", string.Empty);
