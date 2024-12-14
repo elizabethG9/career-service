@@ -1,12 +1,13 @@
 
 using System.Text;
-using career_service.Src.Consumers;
-using career_service.Src.Data;
-using career_service.Src.Helpers;
-using career_service.Src.Repsositories;
-using career_service.Src.Repsositories.Interface;
-using career_service.Src.Services;
-using career_service.Src.Services.Interface;
+using careers_service.Src.Consumers;
+using careers_service.Src.Data;
+using careers_service.Src.Helpers;
+using careers_service.Src.Repsositories;
+using careers_service.Src.Repsositories.Interface;
+using careers_service.Src.Services;
+using careers_service.Src.Services.Interface;
+using careers_service.Src.Services.Interfaces;
 using DotNetEnv;
 using MassTransit;
 using Microsoft.IdentityModel.Tokens;

@@ -1,4 +1,4 @@
-using career_service.Src.Services.Interface;
+using careers_service.Src.Services.Interface;
 using CareersProto;
 using Grpc.Core;
 using Microsoft.AspNetCore.Authorization;
