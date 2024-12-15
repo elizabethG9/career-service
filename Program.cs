@@ -76,7 +76,7 @@ builder.Services.AddMassTransit(x =>
             h.Password("guest");
         });
         
-        cfg.ReceiveEndpoint("token-blacklist-queue", ep =>
+        cfg.ReceiveEndpoint("token-blacklist-queue-1", ep =>
         {
             ep.ConfigureConsumer<TokenToBlacklistConsumer>(context);
         });
